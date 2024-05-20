@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>{{ school_name | default:"МигрантДок" }}</title>
+  <title>.</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
@@ -57,11 +57,11 @@
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <a href="{% url 'admin:index' %}" class="dropdown-item">
-              <i class="fas fa-user mr-2"></i> Профил
+              <i class="fas fa-user mr-2"></i> Profil
             </a>
             <div class="dropdown-divider"></div>
             <a href="{% url 'logout' %}" class="dropdown-item">
-              <i class="fas fa-sign-out"></i> Выйти
+              <i class="fas fa-sign-out"></i> Chiqish
             </a>
           </div>
         </li>
@@ -76,7 +76,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="{% url 'home' %}" class="brand-link">{{ school_name | default:"МигрантДок" }}</a>
+      
 
       <!-- Sidebar -->
       <div class="sidebar">
@@ -89,15 +89,7 @@
               <a href="{% url 'employee-list' %}" class="nav-link">
                 <i class="nav-icon fas fa-tasks"></i>
                 <p>
-                  Задачи
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="{% url 'employee-list' %}" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
-                <p>
-                  Сотрудники
+                  Vazifalar
                 </p>
               </a>
             </li>
@@ -105,37 +97,36 @@
               <a href="{% url 'doc-list' %}" class="nav-link">
                 <i class="nav-icon fas fa-file-pdf"></i>
                 <p>
-                  Документы
+                  Hujjatlar
                 </p>
               </a>
             </li>
 
-            <li class="nav-header">Бланки документов</li>
+            <li class="nav-header">Hujjat shakllari</li>
             <li class="nav-item">
               <a href="{% url 'employee-list' %}" class="nav-link">
                 <i class="nav-icon fas fa-file"></i>
                 <p>
-                  Бланки
+                  Shakllar
                 </p>
               </a>
             </li>
-            <li class="nav-header">Отчеты</li>
             <li class="nav-item">
               <a href="{% url 'employee-list' %}" class="nav-link">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>
-                  Общий отчет
+                  Umumiy hisobot
                 </p>
               </a>
             </li>
             
 
-            <li class="nav-header">Остальные</li>
+            <li class="nav-header">Boshqalar</li>
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>
-                  Управление
+                  Boshqaruv
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
@@ -144,7 +135,7 @@
                   <a href="{% url 'permitdoccategory' %}" class="nav-link">
                     <i class="nav-icon fas fa-bars"></i>
                     <p>
-                      Разрешение для работы
+                      Ishga ruxsatnoma
                     </p>
                   </a>
                 </li>
@@ -152,7 +143,7 @@
                   <a href="{% url 'citizenship' %}" class="nav-link">
                     <i class="nav-icon fas fa-bars"></i>
                     <p>
-                      Гражданство
+                      Fuqarolik
                       <i class="right"></i>
                     </p>
                   </a>
@@ -161,21 +152,21 @@
                   <a href="{% url 'doctype' %}" class="nav-link">
                     <i class="nav-icon fas fa-bars"></i>
                     <p>
-                      Тип документов
+                      Hujjatlar turi
                       <i class="right"></i>
                     </p>
                   </a>
                 </li>  
               </ul>
             </li>
-            <li class="nav-item">
+            {% comment %} <li class="nav-item">
               <a href="{% url 'configs' %}" class="nav-link">
                 <i class="nav-icon fas fa-cog"></i>
                 <p>
-                  Настройки
+                  Sozlamalar
                 </p>
               </a>
-            </li>
+            </li> {% endcomment %}
 
 
           </ul>

@@ -5,7 +5,7 @@
 <div class="card-header">
   <div class="float-left"><h4>{{object}}</h4></div>
   <div class="card-tools">
-    <a href="#" class="btn btn-tool">Распечатать</a>
+    <a href="#" class="btn btn-tool">Chop etish</a>
     <a href="{% url 'doc-update' object.id %}" class="btn btn-tool">
       <i class="fas fa-edit"></i>
     </a>
@@ -23,7 +23,7 @@
         <div>
           <div class="form-group border-bottom row">
             <label class="col">
-              Документ
+              Hujjat
             </label>
             <div class="col">
               {{ object.get_current_status_display }}
@@ -32,7 +32,7 @@
 
           <div class="form-group border-bottom row">
             <label class="col">
-              Серия, номер
+              Ishlab chiqarish raqami
             </label>
             <div class="col">
               {{ object.serial }}, {{ object.number }}
@@ -41,7 +41,7 @@
 
           <div class="form-group border-bottom row">
             <label class="col">
-              Дата выдачи
+              Berilgan sana
             </label>
             <div class="col">
               {{ object.date_of_issue|date:'d.m.Y' }}
@@ -50,7 +50,7 @@
 
           <div class="form-group border-bottom row">
             <label class="col">
-              Дата окончание
+              Tugash sanasi
             </label>
             <div class="col">
               {{ object.date_of_expiry|date:'d.m.Y' }}
@@ -59,7 +59,7 @@
 
           <div class="form-group border-bottom row">
             <label class="col">
-              Кем выдан
+              Kim tomonidan berilgan
             </label>
             <div class="col">
               {{ object.issued_authority }}
@@ -68,7 +68,7 @@
         </div>
         <div class="form-group border-bottom row">
           <label class="col">
-            Файл:
+            Fayl:
           </label>
           <div class="col">
             <p class="file-upload">

@@ -4,9 +4,9 @@
 {% block title %}
 
   {% if object %}
-    Обновить {{ object }}
+  Yangilash {{ object }}
   {% else %}
-    Добавить нового сотрудника
+  Yangi xodim qo'shing
   {% endif %}
 
 {% endblock title %}
@@ -20,9 +20,9 @@
   {% include 'corecode/form_snippet.html' %}
 
   {% if object %}
-    <input type="submit" class="btn btn-primary" value="Обновить запись">
+    <input type="submit" class="btn btn-primary" value="Kirishni yangilash">
   {% else %}
-    <input type="submit" class="btn btn-primary" value="Добавить нового сотрудника">
+    <input type="submit" class="btn btn-primary" value="Yangi xodim qo'shing">
   {% endif %}
 </form>
 

@@ -41,21 +41,17 @@
 
             <form class="login100-form validate-form" method="post" action="{% url 'login' %}">
                 {% csrf_token %}
-                <span class="login100-form-title">
-                   {{ school_name }}
-                                </span>
                 <span class="error-msg"> 
                     {% if form.errors %}
-                    <p class="error-msg">Your username and password didn't match. Please try again.</p>
+                    <p class="error-msg">Sizning foydalanuvchi nomingiz va parolingiz mos kelmadi. Iltimos, yana bir bor urinib ko'ring.</p>
                     {% endif %}
             
                     {% if next %}
                     {% if user.is_authenticated %}
-                    <p class="error-msg"> Your account doesn't have access to this page. To proceed,
-                      please login with an account that has access.</p>
+                    <p class="error-msg"> Hisobingiz ushbu sahifaga kirish huquqiga ega emas. Davom etish uchun,
+                      kirish huquqiga ega hisob qaydnomasi bilan tizimga kiring.</p>
                     {% else %}
                     </span>
-                    <p>Please Login to see this page.</p>
                     {% endif %}
                     {% endif %}
                 </span>
@@ -78,20 +74,12 @@
                 
                 <div class="container-login100-form-btn">
                     <button class="login100-form-btn" type="submit" value="Login">
-                        Login
+                        Kirish
                     </button>
                     <input type="hidden" name="next" value="{{ next }}">
 
                 </div>
 
-                <div class="text-center p-t-12">
-                    <span class="txt1">
-                        Forgot
-                    </span>
-                    <a class="txt2" href="#">
-                        Username / Password?
-                    </a>
-                </div>
 
                 
             </form>

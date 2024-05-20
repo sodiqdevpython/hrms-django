@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
-{% block title %}Документы{% endblock title %}
+{% block title %}Xujjat{% endblock title %}
 
 {% block breadcrumb %}
 <a class="btn btn-primary" href="{% url 'doc-create' %}"><i
-    class="fas fa-plus"></i> Новый документ</a>
+    class="fas fa-plus"></i> Yangi hujjat</a>
 <a class="btn btn-primary" href="{% url 'doc-upload' %}"><i
-    class="fas fa-upload"></i> Загрузка документов</a>
+    class="fas fa-upload"></i> Hujjatlar yuklanmoqda</a>
 {% endblock breadcrumb %}
 
 {% block content %}
@@ -14,11 +14,10 @@
     <table id="documenttable" class="table table-bordered table-hover" data-page-length='100'>
       <thead class="thead-light">
         <tr>
-          <th>Категория документа</th>
-          <th>Сотрудник</th>
-          <th>Серия, Номер</th>
-          <th>Дата выдачи</th>
-          <th>Дата окончание</th>
+          <th>Hujjat toifasi</th>
+          <th>Xodim</th>
+          <th>Ishlab chiqarish raqami</th>
+          <th>Berilgan sana</th>
           
         </tr>
       </thead>
@@ -31,8 +30,6 @@
             <td>{{ doc.employee }}</td>
             <td>{{ doc.serial }}, {{ doc.number }} </td>
             <td>{{ doc.date_of_issue|date:'d.m.Y' }}</td>
-            <td>{{ doc.date_of_expiry|date:'d.m.Y' }}</td>
-
           </tr>
         {% endfor %}
 

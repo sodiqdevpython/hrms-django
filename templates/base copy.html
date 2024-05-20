@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>{{ school_name | default:"МигрантДок" }}</title>
+  <title></title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
@@ -39,10 +39,10 @@
           <a href="{% url 'home' %} " class="nav-link"><i class="fa fa-home"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="{% url 'current-session' %}" class="nav-link">Год: {{ current_session }}</a>
+          <a href="{% url 'current-session' %}" class="nav-link">Yil: {{ current_session }}</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="{% url 'current-session' %}" class="nav-link">Сессия: {{ current_term }}</a>
+          <a href="{% url 'current-session' %}" class="nav-link">Sessiya: {{ current_term }}</a>
         </li>
       </ul>
 
@@ -57,11 +57,11 @@
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
             <a href="#" class="dropdown-item">
-              <i class="fas fa-user mr-2"></i> Профил
+              <i class="fas fa-user mr-2"></i> Profil
             </a>
             <div class="dropdown-divider"></div>
             <a href="{% url 'logout' %}" class="dropdown-item">
-              <i class="fas fa-sign-out"></i> Выйти
+              <i class="fas fa-sign-out"></i> Chiqish
             </a>
           </div>
         </li>
@@ -76,7 +76,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="{% url 'home' %}" class="brand-link">{{ school_name | default:"МигрантДок" }}</a>
+      
 
       <!-- Sidebar -->
       <div class="sidebar">
@@ -86,37 +86,29 @@
           <ul class="nav nav-pills nav-sidebar flex-column"
             data-widget="treeview" role="menu" data-accordion="false">
             <li class="nav-item">
-              <a href="{% url 'employee-list' %}" class="nav-link">
-                <i class="nav-icon fas fa-graduation-cap"></i>
-                <p>
-                  Сотрудники
-                </p>
-              </a>
-            </li>
-            <li class="nav-item">
               <a href="{% url 'staff-list' %}" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
-                  Member of Staff
+                  Xodimlar a'zosi
                 </p>
               </a>
             </li>
 
-            <li class="nav-header">Бланки</li>
+            <li class="nav-header">Shakllar</li>
             <li class="nav-item">
               <a href="{% url 'invoice-list' %}" class="nav-link">
                 <i class="nav-icon fas fa-money-bill-alt"></i>
                 <p>
-                  Бланки
+                  Shakllar
                 </p>
               </a>
             </li>
-            <li class="nav-header">Отчеты</li>
+            <li class="nav-header">Hisobotlar</li>
             <li class="nav-item">
               <a href="{% url 'create-result' %}" class="nav-link">
                 <i class="nav-icon fas fa-money-bill-alt"></i>
                 <p>
-                  Создать Отчеты
+                  Hisobotlarni yaratish
                 </p>
               </a>
             </li>
@@ -124,7 +116,7 @@
               <a href="{% url 'edit-results' %}" class="nav-link">
                 <i class="nav-icon fas fa-money-bill-alt"></i>
                 <p>
-                  Update Results
+                  Natijalarni yangilash
                 </p>
               </a>
             </li>
@@ -132,17 +124,17 @@
               <a href="{% url 'view-results' %}" class="nav-link">
                 <i class="nav-icon fas fa-money-bill-alt"></i>
                 <p>
-                  View Results
+                  Natijalarni ko‘rish
                 </p>
               </a>
             </li>
 
-            <li class="nav-header">Остальные</li>
+            <li class="nav-header">Boshqalar</li>
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-copy"></i>
                 <p>
-                  Управление
+                  Boshqaruv
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
@@ -151,7 +143,7 @@
                   <a href="{% url 'sessions' %}" class="nav-link">
                     <i class="nav-icon fas fa-bars"></i>
                     <p>
-                      Сессии
+                      Seanslar
                     </p>
                   </a>
                 </li>
@@ -159,7 +151,7 @@
                   <a href="{% url 'terms' %}" class="nav-link">
                     <i class="nav-icon fas fa-bars"></i>
                     <p>
-                      Terms
+                      Shartlar
                       <i class="right"></i>
                     </p>
                   </a>
@@ -168,7 +160,7 @@
                   <a href="{% url 'subjects' %}" class="nav-link">
                     <i class="nav-icon fas fa-bars"></i>
                     <p>
-                      Subjects
+                      Mavzular
                     </p>
                   </a>
                 </li>
@@ -176,20 +168,20 @@
                   <a href="{% url 'classes' %}" class="nav-link">
                     <i class="nav-icon fas fa-bars"></i>
                     <p>
-                      Classes
+                      Sinflar
                     </p>
                   </a>
                 </li>
               </ul>
             </li>
-            <li class="nav-item">
+            {% comment %} <li class="nav-item">
               <a href="{% url 'configs' %}" class="nav-link">
                 <i class="nav-icon fas fa-cog"></i>
                 <p>
-                  Настройки
+                  Sozlamalar
                 </p>
               </a>
-            </li>
+            </li> {% endcomment %}
 
 
           </ul>

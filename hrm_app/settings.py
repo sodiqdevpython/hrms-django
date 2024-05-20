@@ -13,9 +13,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 from django.utils.translation import gettext_lazy as _
 
-from dotenv import load_dotenv
 import os
-load_dotenv()
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,13 +24,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'jernfdu348hdfnewudsfhd3?>1JB@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Render Deployment Code
-DEBUG = 'RENDER' not in os.environ
+DEBUG = True
 
-CSRF_TRUSTED_ORIGINS = ["https://shariforz-human-resources-management-system-0cc4.twc1.net", "http://92.255.76.75"]
+# CSRF_TRUSTED_ORIGINS = ['*']
 
 ALLOWED_HOSTS = ['*']
 
@@ -46,8 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.humanize",
-    "whitenoise.runserver_nostatic",
-    'admin_soft.apps.AdminSoftDashboardConfig', 
+    # 'admin_soft.apps.AdminSoftDashboardConfig', 
     "widget_tweaks",
     "apps.corecode",
  #   "apps.students",
@@ -67,11 +65,9 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     "apps.corecode.middleware.SiteWideConfigs",    
 ]
 
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = "hrm_app.urls"
 
@@ -100,38 +96,14 @@ WSGI_APPLICATION = "hrm_app.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DB_ENGINE   = os.getenv('DB_ENGINE'   , None)
-DB_USERNAME = os.getenv('DB_USERNAME' , None)
-DB_PASS     = os.getenv('DB_PASS'     , None)
-DB_HOST     = os.getenv('DB_HOST'     , None)
-DB_PORT     = os.getenv('DB_PORT'     , None)
-DB_NAME     = os.getenv('DB_NAME'     , None)
 
-if DB_ENGINE and DB_NAME and DB_USERNAME:
-    DATABASES = { 
-      'default': {
-        'ENGINE'  : 'django.db.backends.' + DB_ENGINE, 
-        'NAME'    : DB_NAME,
-        'USER'    : DB_USERNAME,
-        'PASSWORD': DB_PASS,
-        'HOST'    : DB_HOST,
-        'PORT'    : DB_PORT,
-        }, 
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': 'db.sqlite3',
-        }
-    }
 
-#DATABASES = {
-#    "default": {
-#        "ENGINE": "django.db.backends.sqlite3",
-#        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-#    }
-#}
+DATABASES = {
+   "default": {
+       "ENGINE": "django.db.backends.sqlite3",
+       "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+   }
+}
 
 
 # Password validation

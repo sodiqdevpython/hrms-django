@@ -2,22 +2,22 @@
 
 
 {% block title %}
-  Upload Bulk Employees from file
+Fayldan ommaviy xodimlarni yuklang
 {% endblock title %}
 
 
 {% block content %}
 
   <div class="col alert alert-info">
-    <h5>Instruction</h5>
-    <p>Please <a href="{% url 'download-csv' %}">download the CSV file attached here</a>. Fill in the sheet and upload the same file back to this page. DO NOT EDIT THE FIRST ROW</p>
+    <h5>Ko'rsatma</h5>
+    <p>Iltimos, <a href="{% url 'download-csv' %}">bu yerga biriktirilgan CSV faylni yuklab oling</a>. Varaqni to'ldiring va xuddi shu faylni yana ushbu sahifaga yuklang. BIRINCHI QATIRNI TAHRIR QILMANG</p>
   </div>
 
   <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {% include 'corecode/form_snippet.html' %}
 
-    <input type="submit" class="btn btn-success" value="Submit">
+    <input type="submit" class="btn btn-success" value="Topshirish">
   </form>
 
 {% endblock content %}
