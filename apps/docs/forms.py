@@ -7,11 +7,14 @@ from .models import (
 
 
 class DocForm(ModelForm):
-    prefix = "Doc"
+    def __init__(self, *args, **kwargs):
+        super(DocForm, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
 
     class Meta:
         model = Doc
-        fields = "__all__"
+        fields = ['current_status', 'employee', 'doc_type', 'serial', 'number', 'date_of_issue', 'issued_authority', 'address', 'others', 'scanned_doc']
 
         # fields = ['date', 'description']
 

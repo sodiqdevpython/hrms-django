@@ -14,10 +14,8 @@
     <table id="employeetable" class="table table-bordered table-hover" data-page-length='100'>
       <thead class="thead-light">
         <tr>
-          <th>Xodimlar soni</th> 
           <th>To'liq ism</th>
           <th>Lavozim</th>
-          <th>Hujjat toifasi</th>
           <th>Jins</th>
           <th>Telefon raqam</th>
           <th>Holat</th>
@@ -30,7 +28,6 @@
           <!--  <td>{{ forloop.counter}}</td> -->
             <td>{{ employee.surname}} {{employee.firstname }} {{employee.other_name }}</td>
             <td>{{ employee.position}}</td>
-            <td>{{ employee.current_doc_category}}</td>
             <td>{{ employee.get_gender_display}}</td>
             <td>{{ employee.mobile_number}}</td>
             <td>{{ employee.get_current_status_display}}</td>

@@ -44,8 +44,8 @@ class Doc(models.Model):
     def __str__(self):
         return "{} - {}".format(self.doc_type, self.employee)
 
-    def get_absolute_url(self):
-        return reverse("doc-detail", kwargs={"pk": self.pk})
+    # def get_absolute_url(self):
+    #     return reverse("doc-detail", kwargs={"pk": self.pk})
 
 class DocBulkUpload(models.Model):
     date_uploaded = models.DateTimeField(auto_now=True)

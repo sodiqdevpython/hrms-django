@@ -52,18 +52,35 @@ class DocDetailView(LoginRequiredMixin, DetailView):
         return context
 
 
-class DocCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
-    model = Doc
-    fields = "__all__"
-    success_message = "Новый сотрудник успешно добавлен"
+# class DocCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
+#     model = Doc
+#     fields = "__all__"
+#     success_message = "Muvaffaqiyatli qo'shildi"
 
-    def get_form(self):
-        """add date picker in forms"""
-        form = super(DocCreateView, self).get_form()
-        form.fields["date_of_issue"].widget = widgets.DateInput(attrs={"type": "date", "date_format":"%d.%m.%Y"})
-        form.fields["address"].widget = widgets.Textarea(attrs={"rows": 2})
-        form.fields["others"].widget = widgets.Textarea(attrs={"rows": 2})
-        return form
+#     def get_form(self):
+#         """add date picker in forms"""
+#         form = super(DocCreateView, self).get_form()
+#         form.fields["date_of_issue"].widget = widgets.DateInput(attrs={"type": "date", "date_format":"%d.%m.%Y"})
+#         form.fields["address"].widget = widgets.Textarea(attrs={"rows": 2})
+#         form.fields["others"].widget = widgets.Textarea(attrs={"rows": 2})
+#         return form
+
+def DocCreateView(request):
+    if request.method=='POST':
+        form1 = DocForm(request.POST or None, request.FILES or None)
+        if form1.is_valid():
+            form1.save()
+            return redirect(request, 'doc-list')
+        else:
+            print(form1.errors)
+    else:
+        form1 = DocForm()
+    
+    context = {
+        'form1': form1
+    }
+    
+    return render(request, 'docs/test.html', context)
 
 
 class DocUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):

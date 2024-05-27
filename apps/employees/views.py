@@ -66,7 +66,7 @@ class EmployeeCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 class EmployeeUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Employee
     fields = "__all__"
-    success_message = "Запись успешно обновлена."
+    success_message = "Yangilandi."
 
     def get_form(self):
         """add date picker in forms"""

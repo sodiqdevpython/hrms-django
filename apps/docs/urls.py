@@ -13,7 +13,7 @@ from .views import (
 urlpatterns = [
     path("list", DocListView.as_view(), name="doc-list"),
     path("<int:pk>/", DocDetailView.as_view(), name="doc-detail"),
-    path("create/", DocCreateView.as_view(), name="doc-create"),
+    path("create/", DocCreateView, name="doc-create"),
     path("<int:pk>/update/", DocUpdateView.as_view(), name="doc-update"),
     path("<int:pk>/delete/", DocDeleteView.as_view(), name="doc-delete"),
     path("upload/", DocBulkUploadView.as_view(), name="doc-upload"),

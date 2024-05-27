@@ -5,7 +5,6 @@
 <div class="card-header">
   <div class="float-left"><h4>{{object}}</h4></div>
   <div class="card-tools">
-    <a href="#" class="btn btn-tool">Chop etish</a>
     <a href="{% url 'doc-update' object.id %}" class="btn btn-tool">
       <i class="fas fa-edit"></i>
     </a>
@@ -45,15 +44,6 @@
             </label>
             <div class="col">
               {{ object.date_of_issue|date:'d.m.Y' }}
-            </div>
-          </div>
-
-          <div class="form-group border-bottom row">
-            <label class="col">
-              Tugash sanasi
-            </label>
-            <div class="col">
-              {{ object.date_of_expiry|date:'d.m.Y' }}
             </div>
           </div>
 

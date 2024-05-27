@@ -31,8 +31,8 @@ class Employee(models.Model):
     citizenship = models.ForeignKey(
         Citizenship, on_delete=models.SET_NULL, blank=True, null=True, verbose_name="Fuqarolik")
 
-    current_doc_category = models.ForeignKey(
-        PermitDocCategory, on_delete=models.SET_NULL, blank=True, null=True, verbose_name="Hujjat toifasi")
+    # current_doc_category = models.ForeignKey(
+    #     PermitDocCategory, on_delete=models.SET_NULL, blank=True, null=True, verbose_name="Hujjat toifasi")
     
     date_of_employment = models.DateField(default=timezone.now, verbose_name="Qabul qilingan sana")
 
@@ -45,8 +45,7 @@ class Employee(models.Model):
     mobile_num_regex = RegexValidator(
         regex="^[0-9]{10,15}$", message="Entered mobile number isn't in a right format!")
     
-    mobile_number = models.CharField(
-        validators=[mobile_num_regex], max_length=13, blank=True, verbose_name="Тел номер")
+    mobile_number = models.CharField(max_length=20, blank=True, verbose_name="Telefon raqami")
 
     address = models.TextField(blank=True, verbose_name="Manzil")
     others = models.TextField(blank=True, verbose_name="Qo'shimcha ma'lumotlar")

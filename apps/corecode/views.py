@@ -49,8 +49,8 @@ class SiteConfigView(LoginRequiredMixin, View):
         formset = self.form_class(request.POST)
         if formset.is_valid():
             formset.save()
-            messages.success(request, "Configurations successfully updated")
-        context = {"formset": formset, "title": "Configuration"}
+            messages.success(request, "Sozlamalar muvaffaqiyatli yangilandi")
+        context = {"formset": formset, "title": "Sozlamalar"}
         return render(request, self.template_name, context)
 
 
@@ -69,11 +69,11 @@ class SessionCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     form_class = AcademicSessionForm
     template_name = "corecode/mgt_form.html"
     success_url = reverse_lazy("sessions")
-    success_message = "New session successfully added"
+    success_message = "Yangi seans muvaffaqiyatli qo'shildi"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = "Add new session"
+        context["title"] = "Yangi seans qo'shing"
         return context
 
 
@@ -81,7 +81,7 @@ class SessionUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = AcademicSession
     form_class = AcademicSessionForm
     success_url = reverse_lazy("sessions")
-    success_message = "Session successfully updated."
+    success_message = "Seans muvaffaqiyatli yangilandi."
     template_name = "corecode/mgt_form.html"
 
     def form_valid(self, form):
@@ -93,7 +93,7 @@ class SessionUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
                 .exists()
             )
             if not terms:
-                messages.warning(self.request, "You must set a session to current.")
+                messages.warning(self.request, "Seansni joriy qilib o'rnatishingiz kerak.")
                 return redirect("session-list")
         return super().form_valid(form)
 
@@ -102,12 +102,12 @@ class SessionDeleteView(LoginRequiredMixin, DeleteView):
     model = AcademicSession
     success_url = reverse_lazy("sessions")
     template_name = "corecode/core_confirm_delete.html"
-    success_message = "The session {} has been deleted with all its attached content"
+    success_message = ""
 
     def delete(self, request, *args, **kwargs):
         obj = self.get_object()
         if obj.current == True:
-            messages.warning(request, "Cannot delete session as it is set to current")
+            messages.warning(request, "Seansni o‘chirib bo‘lmaydi, chunki u joriy qilib belgilangan")
             return redirect("sessions")
         messages.success(self.request, self.success_message.format(obj.name))
         return super(SessionDeleteView, self).delete(request, *args, **kwargs)
@@ -128,14 +128,14 @@ class TermCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     form_class = AcademicTermForm
     template_name = "corecode/mgt_form.html"
     success_url = reverse_lazy("terms")
-    success_message = "New term successfully added"
+    success_message = "Muvaffaqiyatli kiritildi"
 
 
 class TermUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = AcademicTerm
     form_class = AcademicTermForm
     success_url = reverse_lazy("terms")
-    success_message = "Term successfully updated."
+    success_message = "Muddat muvaffaqiyatli yangilandi."
     template_name = "corecode/mgt_form.html"
 
     def form_valid(self, form):
@@ -259,14 +259,14 @@ class CitizenshipCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView)
     form_class = CitizenshipForm
     template_name = "corecode/mgt_form.html"
     success_url = reverse_lazy("citizenship")
-    success_message = "Новое гражданство успешно добавлено"
+    success_message = "Muvaffaqiyatli qo'shildi"
 
 
 class CitizenshipUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Citizenship
     fields = ["name"]
     success_url = reverse_lazy("citizenship")
-    success_message = "Гражданство успешно обновлено."
+    success_message = "Yangilandi"
     template_name = "corecode/mgt_form.html"
 
 
@@ -298,7 +298,7 @@ class DocumentTypeCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView
     form_class = DocumentTypeForm
     template_name = "corecode/mgt_form.html"
     success_url = reverse_lazy("doctype")
-    success_message = "Новый тип документа успешно добавлено"
+    success_message = "Yangi xujjar qo'shildi"
 
 
 class DocumentTypeUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):

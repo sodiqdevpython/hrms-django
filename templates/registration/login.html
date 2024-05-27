@@ -35,8 +35,8 @@
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
-            <div class="login100-pic js-tilt" style="width: 400px;">
-                <img src="{% static 'dist/img/login.png' %}">
+            <div class="login100-pic js-tilt" style="width: 400px; height: 200px;">
+                <img class="rounded shadow" style="height: 100%; position: relative; bottom: 200;" src="{% static 'dist/img/login.jpg' %}">
             </div>
 
             <form class="login100-form validate-form" method="post" action="{% url 'login' %}">

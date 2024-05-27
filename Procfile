@@ -1,1 +1,0 @@
-web: gunicorn 'hrm_app.wsgi'
